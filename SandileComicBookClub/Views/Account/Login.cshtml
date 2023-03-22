@@ -1,0 +1,61 @@
+﻿@model SandileComicBookClub.Models.Member
+
+@{
+    ViewBag.Title = "Login";
+}
+
+@if (!Request.IsAuthenticated)
+{
+    using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <br />
+        <div class="form-horizontal jumbotron">
+            <h1>Login</h1>
+            <h4>Please enter your Login credentials</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control", autofocus = "autofocus" } })
+                    @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", type = "password" } })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <span class="col-md-offset-2 padding"><input type="checkbox" name="RememberMe" class="checkbox-inline" /></span>
+                <label for="RememberMe">Remember me</label>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <p><input type="submit" value="Log in" class="btn btn-primary" /> @Html.ActionLink("Continue as Guest", "Index", "Home", null, new { @class = "btn" })</p>
+                </div>
+            </div>
+        </div>
+    }
+}
+else
+{
+    <br />
+    <div class="jumbotron">
+        <h2>You logged in as: <span class="bold">@User.Identity.Name</span></h2>
+        <br />
+        <p>@Html.ActionLink("Log Out", "Logout", "Account", new { @class = "btn btn-primary" })</p>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

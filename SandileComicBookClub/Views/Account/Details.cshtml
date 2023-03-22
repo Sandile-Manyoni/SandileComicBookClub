@@ -1,0 +1,129 @@
+﻿@model SandileComicBookClub.Models.Member
+
+@{
+    ViewBag.Title = "Details";
+}
+<br />
+<h2>Member Details</h2>
+<br />
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MemberID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MemberID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Surname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Surname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CellPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CellPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Administrator)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Administrator)
+        </dd>
+
+    </dl>
+</div>
+
+<div class="form-group">
+    <div class="col-md-offset-2">
+        @Html.ActionLink("Edit Details", "Edit", new { id = Model.MemberID }, new { @class = "btn btn-primary" })
+    </div>
+    @if (!User.IsInRole("Admin"))
+    {
+        <hr />
+        <p class="text-muted">If you want to <span class="bold">Delete</span> your account, contact an administrator.</p>
+        <hr />
+    }
+</div>
+
+
+<div class="padding">
+    @if (User.IsInRole("Admin"))
+    {
+        @Html.ActionLink("Back to List", "Index")
+        @Html.Raw(" |")
+
+        if (Request.UrlReferrer == null)
+        {
+            @Html.ActionLink("Go Back", "Index", "Home")
+        }
+        else
+        if (Request.UrlReferrer.Segments.Contains("Edit/") && Request.UrlReferrer.Segments.Contains("Account/"))
+        {
+            @Html.ActionLink("Go Back", "Index", "Home")
+        }
+        else
+        {
+            <a href="@Request.UrlReferrer">Go Back</a>
+        }
+    }
+    else
+    {
+        if (Request.UrlReferrer == null)
+        {
+            @Html.ActionLink("Go Back", "Index", "Home")
+        }
+        else
+        if (Request.UrlReferrer.Segments.Contains("Edit/") && Request.UrlReferrer.Segments.Contains("Account/"))
+        {
+            @Html.ActionLink("Go Back", "Index", "Home")
+        }
+        else
+        {
+            <a href="@Request.UrlReferrer">Go Back</a>
+        }
+    }
+</div>
+

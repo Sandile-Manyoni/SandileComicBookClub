@@ -1,0 +1,71 @@
+﻿@model IEnumerable<SandileComicBookClub.Models.BookTitle>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+<h2>The Club's Comic Book Titles</h2>
+<br />
+<p>
+    @Html.ActionLink("Add New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Category.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Series)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Author)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date_Published)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Books_Available)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookBoxArtURL)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Series)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Author)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date_Published)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Books_Available)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookBoxArtURL)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.TitleID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.TitleID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.TitleID })
+            </td>
+        </tr>
+    }
+
+</table>
+

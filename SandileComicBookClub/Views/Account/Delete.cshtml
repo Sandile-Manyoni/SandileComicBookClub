@@ -1,0 +1,110 @@
+﻿@model SandileComicBookClub.Models.Member
+
+@{
+    ViewBag.Title = "Delete Member";
+}
+
+<h2>@ViewBag.Title</h2>
+@if (Model.Username.ToUpper() != User.Identity.Name.ToUpper())
+{
+    <h3>Are you sure you want to delete this Member? </h3>
+    ViewBag.subTitle = "This action cannot be undone.";
+}
+else
+{
+    <h3>You cannot delete the account with which you're currently logged in.</h3>
+    ViewBag.subTitle = "Please use another Administrator's account";
+}
+
+<div class="form-horizontal">
+    <h4>@ViewBag.subTitle</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Surname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Surname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CellPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CellPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Administrator)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Administrator)
+        </dd>
+
+        
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            @if (Model.Username.ToUpper() != User.Identity.Name.ToUpper())
+            {
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Confirm Delete" class="btn btn-primary" />
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Confirm Delete" class="btn btn-primary" disabled />
+                    </div>
+                </div>
+            }
+        </div>
+    }
+
+    <div class="padding">
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+</div>

@@ -1,0 +1,58 @@
+﻿@model IEnumerable<SandileComicBookClub.Models.BookTitle>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+<br />
+
+<div class="jumbotron">
+    <h1 class="bold">Welcome to the Comic Book Club</h1>
+</div>
+
+
+<hr />
+<h2>View Available Comic Books in my Collection</h2>
+<h3>Browse by Category</h3>
+@using (Html.BeginForm("Explore", "Home", new { categories = ViewBag.Categories }))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        <div class="col-md-10">
+            @Html.DropDownList("Category", (SelectList)ViewBag.Categories, new { @class = "form-control", onchange = "this.form.submit();" })
+        </div>
+    </div>
+}
+
+<br />
+<br />
+
+<div class="flex-container">
+    @foreach (var item in Model)
+    {
+        <div class="flex-item-30 tile">
+            <img src="@item.BookBoxArtURL" width="200" , height="300" position ="centre"/>
+            <dl class="dl-horizontal">
+                <dt>Title:</dt>
+                <dd>@item.Title</dd>
+                <dt>Series:</dt>
+                <dd>@item.Series</dd>
+                <dt>Author:</dt>
+                <dd>@item.Author</dd>
+                <dt>Date Published</dt>
+                <dd>@item.Date_Published</dd>
+                <dt>Books Available:</dt>
+                <dd>@item.Books_Available</dd>
+                @Html.ActionLink("Borrow a Book", "Borrow", "Borrowing", new { id = item.TitleID }, new { @class = "btn btn-default" })
+            </dl>
+        </div>
+    }
+</div>
+
+<footer class="text-center flex-container">
+    <div class="flex-item-65">
+        <p>&copy; @DateTime.Now.Year - Sandile Comic Book Club - Created by Sandile Manyoni (220521409)</p>
+    </div>
+    <div class="flex-item-35">
+        <img class="altlogo" src="~/Content/Images/LogoFooter.png" alt="Sandile CBC Logo" />
+    </div>
+</footer>

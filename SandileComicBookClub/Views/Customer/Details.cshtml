@@ -1,0 +1,33 @@
+﻿@model SandileComicBookClub.Models.Customer
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BookBorrowing.BorrowDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookBorrowing.BorrowDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MemberInfo.Username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MemberInfo.Username)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CustomerID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

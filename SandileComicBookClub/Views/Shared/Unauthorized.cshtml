@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Unauthorized";
+}
+
+
+<br />
+<div class="jumbotron">
+    <h1>@ViewBag.Title</h1>
+    <h2>You are not authorized to access this content.</h2>
+    <p>Please log in with an Administrator account or Sandile.</p>
+    <br />
+    <p>
+        @Html.ActionLink("Log in as Administrator", "Login", "Account", new { @class = "btn btn-primary" })
+    <a href="~/Home/Index" class="btn btn-default">Return to Home Page</a>
+</p>
+</div>

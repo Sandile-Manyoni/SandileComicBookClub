@@ -1,0 +1,9 @@
+﻿@model SandileComicBookClub.Models.BookTitle
+
+@{
+    ViewBag.Title = "Borrow Comic Book";
+}
+<br />
+<h2>Borrow @Model.Title</h2>
+<br />
+@Html.ActionLink("Checkout", "Checkout", "Borrowing", new { id = Model.TitleID }, new { @class = "btn btn-default" })

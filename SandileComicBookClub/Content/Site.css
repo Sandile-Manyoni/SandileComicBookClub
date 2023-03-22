@@ -1,0 +1,156 @@
+﻿
+html, body{
+    height: 100%;
+    /*margin:0;*/
+}
+
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    /*min-height: 100vh;*/
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+    /*margin-bottom: -50px;
+    margin:0;
+    height:100%;*/
+}
+
+
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+/*nav styling*/
+.navSubHeading {
+    font-size: .9em;
+    padding: 7px 10px;
+    background-color: navy;
+    color: white;
+    margin-top: .5em;
+    display: block;
+}
+
+.navbar {
+    background-color: navy;
+}
+
+    .navbar a {
+        color: #c9302c;
+    }
+
+a {
+    color: #c9302c;
+    text-decoration: none;
+}
+
+
+.nav {
+    font-weight: bold;
+    padding-top:2em;
+    font-size:70%;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.padding {
+    /*padding: 12px 16px;*/
+    padding: 0px 21px;
+}
+
+#PWmenu {
+    display: none;
+}
+
+.unbulleted li {
+    list-style: none;
+}
+
+.pic-box {
+    padding: .3em;
+    margin: 0;
+    width: 15em;
+    display: block;
+}
+
+.pic-box:hover {
+        background-color: white;
+ }
+
+.brand {
+    padding: 0;
+    width: 0;
+    margin: 0;
+}
+
+h2 {
+    padding-top: 1em;
+}
+
+.altlogo {
+    width: 100%;
+    display: block;
+    float: right;
+}
+
+footer {
+    padding-top: 1em;
+    color: black;
+    /*background-color: navy;*/
+    bottom: 0;
+    height: 30px;
+    width: 100%;
+}
+
+/*.text-center flex-container {
+    bottom: 0;
+    height: 30px;
+    width: 100%;
+}*/
+
+.flex-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.flex-item-65 {
+    flex: 1 65%;
+}
+
+.flex-item-35 {
+    flex: 1 35%;
+    min-width: 350px;
+    align-items: center;
+}
+
+.flex-item-30 {
+    flex: 1 30%;
+    max-width: 30%;
+}
+
+body {
+    padding-bottom: 0;
+}
+
+.tile img {
+    width: 70%;
+    display: block;
+    margin: auto;
+}
+
+.jumbotron h1 {
+    font-size: 350%;
+}
